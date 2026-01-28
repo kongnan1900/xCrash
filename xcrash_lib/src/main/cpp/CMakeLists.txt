@@ -31,6 +31,9 @@ target_link_libraries(xcrash
         log
         dl)
 
+target_link_options(xcrash PRIVATE
+        "-Wl,-z,max-page-size=16384,-z,common-page-size=16384")
+
 if(USEASAN)
 
 target_compile_options(xcrash PUBLIC
@@ -112,6 +115,9 @@ target_include_directories(xcrash_dumper PUBLIC
 target_link_libraries(xcrash_dumper
         log
         dl)
+
+target_link_options(xcrash_dumper PRIVATE
+        "-Wl,-z,max-page-size=16384,-z,common-page-size=16384")
 
 if(USEASAN)
 
