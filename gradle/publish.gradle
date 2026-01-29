@@ -46,57 +46,57 @@ project.afterEvaluate {
                 artifact sourcesJar
                 artifact javadocJar
 
-                artifactId POM_ARTIFACT_ID
-                groupId POM_GROUP_ID
-                version POM_VERSION_NAME
+                // 使用你指定的 groupId, artifactId, version
+                groupId = ''
+                artifactId = 'xCrash'
+                version = '1.0.0'
 
                 pom {
                     name = POM_NAME
                     description = POM_DESCRIPTION
-                    url = POM_URL
-                    inceptionYear = POM_INCEPTION_YEAR
                     packaging = POM_PACKAGING
-                    scm {
-                        connection = POM_SCM_CONNECTION
-                        url = POM_URL
-                    }
-                    issueManagement {
-                        system = POM_ISSUE_SYSTEM
-                        url = POM_ISSUE_URL
-                    }
-                    licenses {
-                        license {
-                            name = POM_LICENCE_NAME
-                            url = POM_LICENCE_URL
-                            distribution = POM_LICENCE_DIST
-                        }
-                    }
-                    developers {
-                        developer {
-                            id = POM_DEVELOPER_ID
-                            name = POM_DEVELOPER_NAME
-                        }
-                    }
+                    // 注释掉不需要的配置
+                    // url = POM_URL
+                    // inceptionYear = POM_INCEPTION_YEAR
+                    // scm {
+                    //     connection = POM_SCM_CONNECTION
+                    //     url = POM_URL
+                    // }
+                    // issueManagement {
+                    //     system = POM_ISSUE_SYSTEM
+                    //     url = POM_ISSUE_URL
+                    // }
+                    // licenses {
+                    //     license {
+                    //         name = POM_LICENCE_NAME
+                    //         url = POM_LICENCE_URL
+                    //         distribution = POM_LICENCE_DIST
+                    //     }
+                    // }
+                    // developers {
+                    //     developer {
+                    //         id = POM_DEVELOPER_ID
+                    //         name = POM_DEVELOPER_NAME
+                    //     }
+                    // }
                 }
             }
         }
         repositories {
             maven {
-                name = "sonatype"
-
-                def releasesRepoUrl = "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/"
-                def snapshotsRepoUrl = "https://s01.oss.sonatype.org/content/repositories/snapshots/"
-                url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
-
+                name = ""
+                url = ""
                 credentials {
-                    username ossrhUsername
-                    password ossrhPassword
+                    username ""
+                    password ""
                 }
+                allowInsecureProtocol = true
             }
         }
     }
 }
 
-signing {
-    sign publishing.publications
-}
+// 注释掉签名配置（私有仓库通常不需要签名）
+// signing {
+//     sign publishing.publications
+// }
